@@ -36,8 +36,9 @@ public class MSNutritionalAdviceSteps {
 
     @Given("a ingredient with valid data")
     public void getIngredientValidData(@Transpose DataTable dataTable) throws IOException {
-//        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
-//        String name = data.get(0).get("name");
+        // List<Map<String, String>> data = dataTable.asMaps(String.class,
+        // String.class);
+        // String name = data.get(0).get("name");
         Map<String, String> data = dataTable.asMap(String.class, String.class);
         String name = data.get("name");
         String variety = data.get("variety");
@@ -50,16 +51,18 @@ public class MSNutritionalAdviceSteps {
         valuesToTemplate.put("benefits", benefits);
         valuesToTemplate.put("dishCategory", dishCategory);
 
-        String jsonAsString = jsonTemplate(envConfig.getProperty("msinventory-ingredient_request"), valuesToTemplate);
+        String jsonAsString = jsonTemplate(envConfig.getProperty("msnutritionaladvice-ingredient_request"),
+                valuesToTemplate);
 
         world.scenarioContext.put("requestStr", jsonAsString);
-        //world.scenarioContext.put("generatedGuid", uuid);
+        // world.scenarioContext.put("generatedGuid", uuid);
     }
 
     @Given("a ingredient with invalid data")
     public void getIngredientInvalidData(@Transpose DataTable dataTable) throws IOException {
-//        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
-//        String codigo = data.get(0).get("codigo");
+        // List<Map<String, String>> data = dataTable.asMaps(String.class,
+        // String.class);
+        // String codigo = data.get(0).get("codigo");
         Map<String, String> data = dataTable.asMap(String.class, String.class);
         String name = data.get("name");
         String variety = data.get("variety");
@@ -72,7 +75,8 @@ public class MSNutritionalAdviceSteps {
         valuesToTemplate.put("benefits", benefits);
         valuesToTemplate.put("dishCategory", dishCategory);
 
-        String jsonAsString = jsonTemplate(envConfig.getProperty("msinventory-ingredient_request"), valuesToTemplate);
+        String jsonAsString = jsonTemplate(envConfig.getProperty("msnutritionaladvice-ingredient_request"),
+                valuesToTemplate);
 
         world.scenarioContext.put("requestStr", jsonAsString);
     }
@@ -84,8 +88,8 @@ public class MSNutritionalAdviceSteps {
                 .accept(ContentType.JSON)
                 .body(payload)
                 .contentType(ContentType.JSON)
-                .when().post(envConfig.getProperty("msinventory-service_url")
-                        + envConfig.getProperty("msinventory-ingredient_api"));
+                .when().post(envConfig.getProperty("msnutritionaladvice-service_url")
+                        + envConfig.getProperty("msnutritionaladvice-ingredient_api"));
 
         world.scenarioContext.put("response", response);
     }
@@ -106,7 +110,9 @@ public class MSNutritionalAdviceSteps {
         Assert.assertNotNull(responseString);
         Assert.assertNotEquals("", responseString);
         Assert.assertTrue(responseString.matches("\"[a-f0-9]{8}(-[a-f0-9]{4}){4}[a-f0-9]{8}\""));
-        /*String generatedGuid = world.scenarioContext.get("generatedGuid").toString();
-        Assert.assertTrue(responseString.contains(generatedGuid));*/
+        /*
+         * String generatedGuid = world.scenarioContext.get("generatedGuid").toString();
+         * Assert.assertTrue(responseString.contains(generatedGuid));
+         */
     }
 }
