@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="testrunner.TestRunner" time="1.969" tests="2" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="19"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\Escritorio\CucumberIntTest\target\test-classes;D:\Escritorio\CucumberIntTest\target\classes;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-core\7.20.1\cucumber-core-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-gherkin\7.20.1\cucumber-gherkin-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.20.1\cucumber-gherkin-messages-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\messages\24.1.0\messages-24.1.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\testng-xml-formatter\0.2.0\testng-xml-formatter-0.2.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\query\12.2.0\query-12.2.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\tag-expressions\6.1.0\tag-expressions-6.1.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-expressions\17.1.0\cucumber-expressions-17.1.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\datatable\7.20.1\datatable-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-plugin\7.20.1\cucumber-plugin-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\docstring\7.20.1\docstring-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\html-formatter\21.7.0\html-formatter-21.7.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\junit-xml-formatter\0.5.0\junit-xml-formatter-0.5.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\ci-environment\10.0.1\ci-environment-10.0.1.jar;C:\Users\jmacb\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-java\7.20.1\cucumber-java-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\gherkin\30.0.4\gherkin-30.0.4.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-jvm-deps\1.0.6\cucumber-jvm-deps-1.0.6.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-junit\7.20.1\cucumber-junit-7.20.1.jar;C:\Users\jmacb\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\jmacb\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-picocontainer\7.13.0\cucumber-picocontainer-7.13.0.jar;C:\Users\jmacb\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\rest-assured\5.3.1\rest-assured-5.3.1.jar;C:\Users\jmacb\.m2\repository\org\apache\groovy\groovy\4.0.11\groovy-4.0.11.jar;C:\Users\jmacb\.m2\repository\org\apache\groovy\groovy-xml\4.0.11\groovy-xml-4.0.11.jar;C:\Users\jmacb\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\jmacb\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\jmacb\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\jmacb\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\jmacb\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\jmacb\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\jmacb\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\json-path\5.3.1\json-path-5.3.1.jar;C:\Users\jmacb\.m2\repository\org\apache\groovy\groovy-json\4.0.11\groovy-json-4.0.11.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\rest-assured-common\5.3.1\rest-assured-common-5.3.1.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\xml-path\5.3.1\xml-path-5.3.1.jar;C:\Users\jmacb\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\jmacb\.m2\repository\commons-io\commons-io\2.14.0\commons-io-2.14.0.jar;C:\Users\jmacb\.m2\repository\org\apache\logging\log4j\log4j-api\2.20.0\log4j-api-2.20.0.jar;C:\Users\jmacb\.m2\repository\org\apache\logging\log4j\log4j-core\2.20.0\log4j-core-2.20.0.jar;C:\Users\jmacb\.m2\repository\org\apache\logging\log4j\log4j-iostreams\2.20.0\log4j-iostreams-2.20.0.jar;C:\Users\jmacb\.m2\repository\org\json\json\20231013\json-20231013.jar;C:\Users\jmacb\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\jmacb\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\jmacb\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/La_Paz"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="19"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="BO"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
+    <property name="sun.java.command" value="C:\Users\jmacb\AppData\Local\Temp\surefire236676732344734724\surefirebooter-20250125115525148_3.jar C:\Users\jmacb\AppData\Local\Temp\surefire236676732344734724 2025-01-25T11-55-24_922-jvmRun1 surefire-20250125115525148_1tmp surefire_0-20250125115525148_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Escritorio\CucumberIntTest\target\test-classes;D:\Escritorio\CucumberIntTest\target\classes;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-core\7.20.1\cucumber-core-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-gherkin\7.20.1\cucumber-gherkin-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.20.1\cucumber-gherkin-messages-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\messages\24.1.0\messages-24.1.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\testng-xml-formatter\0.2.0\testng-xml-formatter-0.2.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\query\12.2.0\query-12.2.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\tag-expressions\6.1.0\tag-expressions-6.1.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-expressions\17.1.0\cucumber-expressions-17.1.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\datatable\7.20.1\datatable-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-plugin\7.20.1\cucumber-plugin-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\docstring\7.20.1\docstring-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\html-formatter\21.7.0\html-formatter-21.7.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\junit-xml-formatter\0.5.0\junit-xml-formatter-0.5.0.jar;C:\Users\jmacb\.m2\repository\io\cucumber\ci-environment\10.0.1\ci-environment-10.0.1.jar;C:\Users\jmacb\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-java\7.20.1\cucumber-java-7.20.1.jar;C:\Users\jmacb\.m2\repository\io\cucumber\gherkin\30.0.4\gherkin-30.0.4.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-jvm-deps\1.0.6\cucumber-jvm-deps-1.0.6.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-junit\7.20.1\cucumber-junit-7.20.1.jar;C:\Users\jmacb\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\jmacb\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jmacb\.m2\repository\io\cucumber\cucumber-picocontainer\7.13.0\cucumber-picocontainer-7.13.0.jar;C:\Users\jmacb\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\rest-assured\5.3.1\rest-assured-5.3.1.jar;C:\Users\jmacb\.m2\repository\org\apache\groovy\groovy\4.0.11\groovy-4.0.11.jar;C:\Users\jmacb\.m2\repository\org\apache\groovy\groovy-xml\4.0.11\groovy-xml-4.0.11.jar;C:\Users\jmacb\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\jmacb\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\jmacb\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\jmacb\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\jmacb\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\jmacb\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\jmacb\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\json-path\5.3.1\json-path-5.3.1.jar;C:\Users\jmacb\.m2\repository\org\apache\groovy\groovy-json\4.0.11\groovy-json-4.0.11.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\rest-assured-common\5.3.1\rest-assured-common-5.3.1.jar;C:\Users\jmacb\.m2\repository\io\rest-assured\xml-path\5.3.1\xml-path-5.3.1.jar;C:\Users\jmacb\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\jmacb\.m2\repository\commons-io\commons-io\2.14.0\commons-io-2.14.0.jar;C:\Users\jmacb\.m2\repository\org\apache\logging\log4j\log4j-api\2.20.0\log4j-api-2.20.0.jar;C:\Users\jmacb\.m2\repository\org\apache\logging\log4j\log4j-core\2.20.0\log4j-core-2.20.0.jar;C:\Users\jmacb\.m2\repository\org\apache\logging\log4j\log4j-iostreams\2.20.0\log4j-iostreams-2.20.0.jar;C:\Users\jmacb\.m2\repository\org\json\json\20231013\json-20231013.jar;C:\Users\jmacb\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\jmacb\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\jmacb\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\jmacb"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Escritorio\CucumberIntTest"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\jmacb\AppData\Local\Temp\surefire236676732344734724\surefirebooter-20250125115525148_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="19.0.2+7-44"/>
+    <property name="user.name" value="jmacb"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\jmacb\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\jmacb\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2023.3.6"/>
+    <property name="java.version" value="19.0.2"/>
+    <property name="user.dir" value="D:\Escritorio\CucumberIntTest"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft\jdk-11.0.20.101-hotspot\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\PuTTY\;C:\Program Files\Microsoft VS Code Insiders\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\FileBot\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\jmacb\AppData\Local\Programs\Python\Launcher\;C:\Users\jmacb\AppData\Local\Microsoft\WindowsApps;C:\Users\jmacb\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\flutter\flutter\bin;C:\Users\jmacb\AppData\Roaming\npm;C:\Users\jmacb\AppData\Roaming\Composer\vendor\bin;C:\Users\jmacb\.dotnet\tools;C:\Program Files\Git\usr\bin;C:\Users\jmacb\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\PyCharm 2024.2.1\bin;;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="63.0"/>
+  </properties>
+  <testcase name="Perform item creation with valid details" classname="Perform a item creation" time="1.797">
+    <system-out><![CDATA[Runner class : JUnitRunner
+-- listing properties --
+msinventory-item_request=/src/test/java/msinventory/common/ite...
+msinventory-service_url=https://localhost:7050/api
+msinventory-item_api=/Item
+
+@Item
+Scenario: Perform item creation with valid details # src/test/java/msinventory/features/crearitem.feature:4
+  Given an item with valid details                 # msinventory.steps.MSInventorySteps.getItemValidData(io.cucumber.datatable.DataTable)
+    | itemName  |
+    | empanadas |
+11:55:27.447 [main] ERROR util.RequestSpecificationFactory - Request method:	POST
+11:55:27.450 [main] ERROR util.RequestSpecificationFactory - Request URI:	https://localhost:7050/api/Item
+11:55:27.450 [main] ERROR util.RequestSpecificationFactory - Proxy:			<none>
+11:55:27.450 [main] ERROR util.RequestSpecificationFactory - Request params:	<none>
+11:55:27.450 [main] ERROR util.RequestSpecificationFactory - Query params:	<none>
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - Form params:	<none>
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - Path params:	<none>
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - 				Content-Type=application/json
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - Cookies:		<none>
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - Multiparts:		<none>
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - Body:
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - {
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory -     "itemName": "empanadas",
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory -     "id": "b9917a25-760f-4ed1-9ed8-9a63240d2065"
+11:55:27.451 [main] ERROR util.RequestSpecificationFactory - }
+11:55:27.907 [main] ERROR util.RequestSpecificationFactory - HTTP/1.1 200 OK
+11:55:27.907 [main] ERROR util.RequestSpecificationFactory - Content-Type: application/json; charset=utf-8
+11:55:27.907 [main] ERROR util.RequestSpecificationFactory - Date: Sat, 25 Jan 2025 15:55:27 GMT
+11:55:27.907 [main] ERROR util.RequestSpecificationFactory - Server: Kestrel
+11:55:27.907 [main] ERROR util.RequestSpecificationFactory - Transfer-Encoding: chunked
+11:55:27.907 [main] ERROR util.RequestSpecificationFactory - 
+11:55:27.907 [main] ERROR util.RequestSpecificationFactory - "b9917a25-760f-4ed1-9ed8-9a63240d2065"
+  When request is submitted for item creation      # msinventory.steps.MSInventorySteps.submitItemCreation()
+  Then verify that the Item HTTP response is 200   # msinventory.steps.MSInventorySteps.verifyHTTPResponseCode(java.lang.Integer)
+  And a item id is returned                        # msinventory.steps.MSInventorySteps.checkItemId()
+]]></system-out>
+  </testcase>
+  <testcase name="Perform a failed item creation" classname="Perform a item creation" time="0.036">
+    <system-out><![CDATA[
+@Item
+Scenario: Perform a failed item creation         # src/test/java/msinventory/features/crearitem.feature:12
+  Given an item with invalid details             # msinventory.steps.MSInventorySteps.getItemInvalidData(io.cucumber.datatable.DataTable)
+    | itemName |
+11:55:27.924 [main] ERROR util.RequestSpecificationFactory - Request method:	POST
+11:55:27.924 [main] ERROR util.RequestSpecificationFactory - Request URI:	https://localhost:7050/api/Item
+11:55:27.924 [main] ERROR util.RequestSpecificationFactory - Proxy:			<none>
+11:55:27.924 [main] ERROR util.RequestSpecificationFactory - Request params:	<none>
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - Query params:	<none>
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - Form params:	<none>
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - Path params:	<none>
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - 				Content-Type=application/json
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - Cookies:		<none>
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - Multiparts:		<none>
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - Body:
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - {
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory -     "id": ""
+11:55:27.925 [main] ERROR util.RequestSpecificationFactory - }
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory - HTTP/1.1 400 Bad Request
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory - Content-Type: application/problem+json; charset=utf-8
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory - Date: Sat, 25 Jan 2025 15:55:27 GMT
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory - Server: Kestrel
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory - Transfer-Encoding: chunked
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory - 
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory - {
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -     "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -     "title": "One or more validation errors occurred.",
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -     "status": 400,
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -     "errors": {
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -         "command": [
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -             "The command field is required."
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -         ],
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -         "$.id": [
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -             "The JSON value could not be converted to Inventory.Application.Items.CreateItem.CreateItemCommand. Path: $.id | LineNumber: 0 | BytePositionInLine: 8."
+11:55:27.950 [main] ERROR util.RequestSpecificationFactory -         ]
+11:55:27.951 [main] ERROR util.RequestSpecificationFactory -     },
+11:55:27.951 [main] ERROR util.RequestSpecificationFactory -     "traceId": "00-5de875b1e422dcd36dfa5fc85b977e1b-4f7a70d695b9e9fe-00"
+11:55:27.951 [main] ERROR util.RequestSpecificationFactory - }
+  When request is submitted for item creation    # msinventory.steps.MSInventorySteps.submitItemCreation()
+  Then verify that the Item HTTP response is 400 # msinventory.steps.MSInventorySteps.verifyHTTPResponseCode(java.lang.Integer)
+]]></system-out>
+  </testcase>
+</testsuite>

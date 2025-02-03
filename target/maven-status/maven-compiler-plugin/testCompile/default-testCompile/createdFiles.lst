@@ -1,0 +1,6 @@
+context\Hooks.class
+testrunner\TestRunner.class
+util\RequestSpecificationFactory.class
+context\World.class
+util\Util.class
+msinventory\steps\MSInventorySteps.class

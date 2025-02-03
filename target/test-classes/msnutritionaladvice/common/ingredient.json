@@ -1,0 +1,6 @@
+{
+  "name": "${name}",
+  "variety": "${variety}",
+  "benefits": "${benefits}",
+  "dishCategory": "${dishCategory}"
+}
