@@ -14,3 +14,8 @@ Feature: Create MealPlan
       |        |              |         |  10             | 20             |     30               |  40         | 3fa85f64-5717-4562-b3fc-2c963f66afa6      | 3fa85f64-5717-4562-b3fc-2c963f66afa6   |
     When request is submitted for mealplan creation
     Then verify that the MealPlan HTTP response is 500
+
+  Scenario: read all meal plains
+    When Get all meal plains saved
+    Then verify that the MealPlan HTTP response is 200
+    And the meal plans are returned
