@@ -212,4 +212,112 @@ public class MSNutritionalAdviceSteps {
          * Assert.assertTrue(responseString.contains(generatedGuid));
          */
     }
+
+    // MealPlan
+
+    @Given("a mealplan with valid data")
+    public void getMealPlanValidData(@Transpose DataTable dataTable) throws IOException {
+        // List<Map<String, String>> data = dataTable.asMaps(String.class,
+        // String.class);
+        // String name = data.get(0).get("name");
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        
+        String name = data.get("name");
+        String description = data.get("description");
+        String goal = data.get("goal");
+        int dailyCalories = Integer.parseInt(data.get("dailyCalories"));
+        int dailyProtein = Integer.parseInt(data.get("dailyProtein"));
+        int dailyCarbohydrates = Integer.parseInt(data.get("dailyCarbohydrates"));
+        int dailyFats = Integer.parseInt(data.get("dailyFats"));
+        String nutritionistId = data.get("nutritionistId");
+        String patientId = data.get("patientId");
+
+        // Creación del objeto JSON a enviar en la solicitud
+        Map<String, Object> valuesToTemplate = new HashMap<>();
+        valuesToTemplate.put("name", name);
+        valuesToTemplate.put("description", description);
+        valuesToTemplate.put("goal", goal);
+        valuesToTemplate.put("dailyCalories", dailyCalories);
+        valuesToTemplate.put("dailyProtein", dailyProtein);
+        valuesToTemplate.put("dailyCarbohydrates", dailyCarbohydrates);
+        valuesToTemplate.put("dailyFats", dailyFats);
+        valuesToTemplate.put("nutritionistId", nutritionistId);
+        valuesToTemplate.put("patientId", patientId);
+
+        String jsonAsString = jsonTemplate(envConfig.getProperty("msnutritionaladvice-mealplan_request"),
+                valuesToTemplate);
+
+        world.scenarioContext.put("requestStr", jsonAsString);
+        // world.scenarioContext.put("generatedGuid", uuid);
+    }
+
+    @Given("a mealplan with invalid data")
+    public void getMealPlanInvalidData(@Transpose DataTable dataTable) throws IOException {
+        // List<Map<String, String>> data = dataTable.asMaps(String.class,
+        // String.class);
+        // String codigo = data.get(0).get("codigo");
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+       
+        String name = data.get("name");
+        String description = data.get("description");
+        String goal = data.get("goal");
+        int dailyCalories = Integer.parseInt(data.get("dailyCalories"));
+        int dailyProtein = Integer.parseInt(data.get("dailyProtein"));
+        int dailyCarbohydrates = Integer.parseInt(data.get("dailyCarbohydrates"));
+        int dailyFats = Integer.parseInt(data.get("dailyFats"));
+        String nutritionistId = data.get("nutritionistId");
+        String patientId = data.get("patientId");
+
+        // Creación del objeto JSON a enviar en la solicitud
+        Map<String, Object> valuesToTemplate = new HashMap<>();
+        valuesToTemplate.put("name", name);
+        valuesToTemplate.put("description", description);
+        valuesToTemplate.put("goal", goal);
+        valuesToTemplate.put("dailyCalories", dailyCalories);
+        valuesToTemplate.put("dailyProtein", dailyProtein);
+        valuesToTemplate.put("dailyCarbohydrates", dailyCarbohydrates);
+        valuesToTemplate.put("dailyFats", dailyFats);
+        valuesToTemplate.put("nutritionistId", nutritionistId);
+        valuesToTemplate.put("patientId", patientId);
+
+        String jsonAsString = jsonTemplate(envConfig.getProperty("msnutritionaladvice-mealplan_request"),
+                valuesToTemplate);
+
+        world.scenarioContext.put("requestStr", jsonAsString);
+    }
+
+    @When("request is submitted for mealplan creation")
+    public void submitMealPlanCreation() {
+        String payload = world.scenarioContext.get("requestStr").toString();
+        Response response = request
+                .accept(ContentType.JSON)
+                .body(payload)
+                .contentType(ContentType.JSON)
+                .when().post(envConfig.getProperty("msnutritionaladvice-service_url")
+                        + envConfig.getProperty("msnutritionaladvice-mealplan_api"));
+
+        world.scenarioContext.put("response", response);
+    }
+
+    @Then("verify that the MealPlan HTTP response is {int}")
+    public void verifyMealPlanHTTPResponseCode(Integer status) {
+        Response response = (Response) world.scenarioContext.get("response");
+        Integer actualStatusCode = response.then()
+                .extract()
+                .statusCode();
+        Assert.assertEquals(status, actualStatusCode);
+    }
+
+    @Then("a mealplan id is returned")
+    public void checkMealPlanId() {
+        Response response = (Response) world.scenarioContext.get("response");
+        String responseString = response.then().extract().asString();
+        Assert.assertNotNull(responseString);
+        Assert.assertNotEquals("", responseString);
+        Assert.assertTrue(responseString.matches("\"[a-f0-9]{8}(-[a-f0-9]{4}){4}[a-f0-9]{8}\""));
+        /*
+         * String generatedGuid = world.scenarioContext.get("generatedGuid").toString();
+         * Assert.assertTrue(responseString.contains(generatedGuid));
+         */
+    }
 }
