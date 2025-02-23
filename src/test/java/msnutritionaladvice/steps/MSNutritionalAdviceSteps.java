@@ -95,7 +95,7 @@ public class MSNutritionalAdviceSteps {
     }
 
     @Then("verify that the Ingredient HTTP response is {int}")
-    public void verifyHTTPResponseCode(Integer status) {
+    public void verifyIngredientHTTPResponseCode(Integer status) {
         Response response = (Response) world.scenarioContext.get("response");
         Integer actualStatusCode = response.then()
                 .extract()
@@ -105,6 +105,103 @@ public class MSNutritionalAdviceSteps {
 
     @Then("a ingredient id is returned")
     public void checkIngredientId() {
+        Response response = (Response) world.scenarioContext.get("response");
+        String responseString = response.then().extract().asString();
+        Assert.assertNotNull(responseString);
+        Assert.assertNotEquals("", responseString);
+        Assert.assertTrue(responseString.matches("\"[a-f0-9]{8}(-[a-f0-9]{4}){4}[a-f0-9]{8}\""));
+        /*
+         * String generatedGuid = world.scenarioContext.get("generatedGuid").toString();
+         * Assert.assertTrue(responseString.contains(generatedGuid));
+         */
+    }
+
+    // Recipe
+    
+    @Given("a recipe with valid data")
+    public void getRecipeValidData(@Transpose DataTable dataTable) throws IOException {
+        // List<Map<String, String>> data = dataTable.asMaps(String.class,
+        // String.class);
+        // String name = data.get(0).get("name");
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        
+        String name = data.get("name");
+        String description = data.get("description");
+        int preparationTime = Integer.parseInt(data.get("preparationTime"));
+        int cookingTime = Integer.parseInt(data.get("cookingTime"));
+        int portions = Integer.parseInt(data.get("portions"));
+        String instructionsStr = data.get("instructions");
+        String[] instructions = instructionsStr.split(";");
+
+        // Creamos un mapa con los valores a utilizar en el template
+        Map<String, Object> valuesToTemplate = new HashMap<>();
+        valuesToTemplate.put("name", name);
+        valuesToTemplate.put("description", description);
+        valuesToTemplate.put("preparationTime", preparationTime);
+        valuesToTemplate.put("cookingTime", cookingTime);
+        valuesToTemplate.put("portions", portions);
+        valuesToTemplate.put("instructions", instructions);
+
+        String jsonAsString = jsonTemplate(envConfig.getProperty("msnutritionaladvice-recipe_request"),
+                valuesToTemplate);
+
+        world.scenarioContext.put("requestStr", jsonAsString);
+        // world.scenarioContext.put("generatedGuid", uuid);
+    }
+
+    @Given("a recipe with invalid data")
+    public void getRecipeInvalidData(@Transpose DataTable dataTable) throws IOException {
+        // List<Map<String, String>> data = dataTable.asMaps(String.class,
+        // String.class);
+        // String codigo = data.get(0).get("codigo");
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        
+        String name = data.get("name");
+        String description = data.get("description");
+        int preparationTime = Integer.parseInt(data.get("preparationTime"));
+        int cookingTime = Integer.parseInt(data.get("cookingTime"));
+        int portions = Integer.parseInt(data.get("portions"));
+        String instructionsStr = data.get("instructions");
+
+        // Creamos un mapa con los valores a utilizar en el template
+        Map<String, Object> valuesToTemplate = new HashMap<>();
+        valuesToTemplate.put("name", name);
+        valuesToTemplate.put("description", description);
+        valuesToTemplate.put("preparationTime", preparationTime);
+        valuesToTemplate.put("cookingTime", cookingTime);
+        valuesToTemplate.put("portions", portions);
+        valuesToTemplate.put("instructions", instructionsStr);
+
+        String jsonAsString = jsonTemplate(envConfig.getProperty("msnutritionaladvice-recipe_request"),
+                valuesToTemplate);
+
+        world.scenarioContext.put("requestStr", jsonAsString);
+    }
+
+    @When("request is submitted for recipe creation")
+    public void submitRecipeCreation() {
+        String payload = world.scenarioContext.get("requestStr").toString();
+        Response response = request
+                .accept(ContentType.JSON)
+                .body(payload)
+                .contentType(ContentType.JSON)
+                .when().post(envConfig.getProperty("msnutritionaladvice-service_url")
+                        + envConfig.getProperty("msnutritionaladvice-recipe_api"));
+
+        world.scenarioContext.put("response", response);
+    }
+
+    @Then("verify that the Recipe HTTP response is {int}")
+    public void verifyRecipetHTTPResponseCode(Integer status) {
+        Response response = (Response) world.scenarioContext.get("response");
+        Integer actualStatusCode = response.then()
+                .extract()
+                .statusCode();
+        Assert.assertEquals(status, actualStatusCode);
+    }
+
+    @Then("a recipe id is returned")
+    public void checkRecipeId() {
         Response response = (Response) world.scenarioContext.get("response");
         String responseString = response.then().extract().asString();
         Assert.assertNotNull(responseString);
