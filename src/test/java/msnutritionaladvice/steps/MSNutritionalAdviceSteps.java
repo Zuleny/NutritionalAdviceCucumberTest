@@ -5,7 +5,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import context.World;
-import io.cucumber.cienvironment.internal.com.eclipsesource.json.Json;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.Transpose;
@@ -19,16 +18,13 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import util.RequestSpecificationFactory;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static util.Util.jsonTemplate;
 import static util.Util.stringFromFile;
+import static util.Util.stringFromFileRelative;
 
 public class MSNutritionalAdviceSteps {
     private final World world;
@@ -350,7 +346,7 @@ public class MSNutritionalAdviceSteps {
         Response response = (Response) world.scenarioContext.get("response");
         String responseString = response.then().extract().asString();
 //        String ingredienteJsonFormat = envConfig.getProperty("msnutritionaladvice-ingredient_request");
-        String ingredienteJsonFormat = stringFromFile("C:\\wDevelopment\\NutritionalAdviceCucumberTest\\src\\test\\java\\msnutritionaladvice\\common\\ingredient.json");
+        String ingredienteJsonFormat = stringFromFileRelative("src/test/java/msnutritionaladvice/common/ingredient.json");
         JsonArray objectJson = JsonParser.parseString(responseString).getAsJsonArray();
         JsonObject objectJsonReference = JsonParser.parseString(ingredienteJsonFormat).getAsJsonObject();
         for (JsonElement i : objectJson) {
@@ -381,7 +377,7 @@ public class MSNutritionalAdviceSteps {
         Response response = (Response) world.scenarioContext.get("response");
         String responseString = response.then().extract().asString();
 //        String ingredienteJsonFormat = envConfig.getProperty("msnutritionaladvice-mealplan_request");
-        String ingredienteJsonFormat = stringFromFile("C:\\wDevelopment\\NutritionalAdviceCucumberTest\\src\\test\\java\\msnutritionaladvice\\common\\mealplan.json");
+        String ingredienteJsonFormat = stringFromFileRelative("src/test/java/msnutritionaladvice/common/mealplan.json");
         JsonArray objectJson = JsonParser.parseString(responseString).getAsJsonArray();
         JsonObject objectJsonReference = JsonParser.parseString(ingredienteJsonFormat).getAsJsonObject();
         for (JsonElement i : objectJson) {
