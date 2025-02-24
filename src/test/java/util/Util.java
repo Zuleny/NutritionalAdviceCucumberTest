@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
@@ -19,5 +20,10 @@ public class Util {
         values.forEach(payload::put);
 
         return payload.toString();
+    }
+
+    public static String stringFromFileRelative(String relativePath) throws IOException {
+        Path filePath = Paths.get(System.getProperty("user.dir"), relativePath);
+        return new String(Files.readAllBytes(filePath));
     }
 }

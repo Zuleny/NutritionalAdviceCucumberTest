@@ -1,9 +1,14 @@
 package msnutritionaladvice.steps;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import context.World;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.Transpose;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,10 +18,13 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import util.RequestSpecificationFactory;
 
+
 import java.io.IOException;
 import java.util.*;
 
 import static util.Util.jsonTemplate;
+import static util.Util.stringFromFile;
+import static util.Util.stringFromFileRelative;
 
 public class MSNutritionalAdviceSteps {
     private final World world;
@@ -117,14 +125,14 @@ public class MSNutritionalAdviceSteps {
     }
 
     // Recipe
-    
+
     @Given("a recipe with valid data")
     public void getRecipeValidData(@Transpose DataTable dataTable) throws IOException {
         // List<Map<String, String>> data = dataTable.asMaps(String.class,
         // String.class);
         // String name = data.get(0).get("name");
         Map<String, String> data = dataTable.asMap(String.class, String.class);
-        
+
         String name = data.get("name");
         String description = data.get("description");
         int preparationTime = Integer.parseInt(data.get("preparationTime"));
@@ -155,7 +163,7 @@ public class MSNutritionalAdviceSteps {
         // String.class);
         // String codigo = data.get(0).get("codigo");
         Map<String, String> data = dataTable.asMap(String.class, String.class);
-        
+
         String name = data.get("name");
         String description = data.get("description");
         int preparationTime = Integer.parseInt(data.get("preparationTime"));
@@ -221,7 +229,7 @@ public class MSNutritionalAdviceSteps {
         // String.class);
         // String name = data.get(0).get("name");
         Map<String, String> data = dataTable.asMap(String.class, String.class);
-        
+
         String name = data.get("name");
         String description = data.get("description");
         String goal = data.get("goal");
@@ -257,7 +265,7 @@ public class MSNutritionalAdviceSteps {
         // String.class);
         // String codigo = data.get(0).get("codigo");
         Map<String, String> data = dataTable.asMap(String.class, String.class);
-       
+
         String name = data.get("name");
         String description = data.get("description");
         String goal = data.get("goal");
@@ -319,5 +327,66 @@ public class MSNutritionalAdviceSteps {
          * String generatedGuid = world.scenarioContext.get("generatedGuid").toString();
          * Assert.assertTrue(responseString.contains(generatedGuid));
          */
+    }
+
+    @When("Get all ingredients saved")
+    public void getAllIngredientsSaved() {
+//        Response response = request.accept(ContentType.JSON)
+//                .when().get(
+//                        envConfig.getProperty("msnutritionaladvice-service_url")
+//                                + envConfig.getProperty("msnutritionaladvice-ingredient_api"));
+        Response response = request.accept(ContentType.JSON)
+                .when().get(
+                        "http://localhost:61157/api" + "/Ingredient");
+        world.scenarioContext.put("response", response);
+    }
+
+    @And("the ingredients are returned")
+    public void theIngredientsAreReturned() throws IOException {
+        Response response = (Response) world.scenarioContext.get("response");
+        String responseString = response.then().extract().asString();
+//        String ingredienteJsonFormat = envConfig.getProperty("msnutritionaladvice-ingredient_request");
+        String ingredienteJsonFormat = stringFromFileRelative("src/test/java/msnutritionaladvice/common/ingredient.json");
+        JsonArray objectJson = JsonParser.parseString(responseString).getAsJsonArray();
+        JsonObject objectJsonReference = JsonParser.parseString(ingredienteJsonFormat).getAsJsonObject();
+        for (JsonElement i : objectJson) {
+            JsonObject object = (JsonObject) i;
+            Set<String> keysReferences = objectJsonReference.keySet();
+            Set<String> keysObject = object.keySet();
+            for (String key : keysReferences) {
+                Assert.assertTrue(keysObject.contains(key));
+            }
+        }
+    }
+
+    @When("Get all meal plains saved")
+    public void getAllMealPlainsSaved() {
+        //        Response response = request.accept(ContentType.JSON)
+//                .when().get(
+//                        envConfig.getProperty("msnutritionaladvice-service_url")
+//                                + envConfig.getProperty("msnutritionaladvice-mealplan_api"));
+        Response response = request.accept(ContentType.JSON)
+                .when().get(
+                        "http://localhost:61157/api" + "/MealPlan");
+        world.scenarioContext.put("response", response);
+    }
+
+
+    @And("the meal plans are returned")
+    public void theMealPlansAreReturned() throws IOException {
+        Response response = (Response) world.scenarioContext.get("response");
+        String responseString = response.then().extract().asString();
+//        String ingredienteJsonFormat = envConfig.getProperty("msnutritionaladvice-mealplan_request");
+        String ingredienteJsonFormat = stringFromFileRelative("src/test/java/msnutritionaladvice/common/mealplan.json");
+        JsonArray objectJson = JsonParser.parseString(responseString).getAsJsonArray();
+        JsonObject objectJsonReference = JsonParser.parseString(ingredienteJsonFormat).getAsJsonObject();
+        for (JsonElement i : objectJson) {
+            JsonObject object = (JsonObject) i;
+            Set<String> keysReferences = objectJsonReference.keySet();
+            Set<String> keysObject = object.keySet();
+            for (String key : keysReferences) {
+                Assert.assertTrue(keysObject.contains(key));
+            }
+        }
     }
 }
